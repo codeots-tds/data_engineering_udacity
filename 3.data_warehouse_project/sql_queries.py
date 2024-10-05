@@ -111,6 +111,7 @@ CREATE TABLE IF NOT EXISTS time (
 """)
 
 # STAGING TABLES
+#Copying all data from two distinct datasets into staging tables.
 """
 -Pulling log data from S3 bucket into staging_events table.
 -From log_data directory in your S3 bucket
