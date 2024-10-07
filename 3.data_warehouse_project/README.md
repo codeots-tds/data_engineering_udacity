@@ -48,7 +48,6 @@ The project contains the files below:
 - dwh.cfg: Configuration file that contains AWS credentials and other Redshift connection details.
 
 ### Database Schema:
-
 This data warehouse is designed using a star schema with one fact table and 4 dimensional tables.
 
 ### Fact Tables:
