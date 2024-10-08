@@ -6,6 +6,7 @@
 - [Installation](#installation)
 - [Datasets](#Datasets)
 - [Project Structure](#ProjectStructure)
+- [Project ERD](#ProjectERD)
 - [ETL Pipeline](#ETLPipeline)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -46,6 +47,9 @@ The project contains the files below:
 - etl.py: Script to extract data from S3, stage it in Redshift, and load it into the final tables.
 - sql_queries.py: Contains all the SQL queries used in the project for table creation and data insertion.
 - dwh.cfg: Configuration file that contains AWS credentials and other Redshift connection details.
+
+## Project ERD:
+![Project ERD](<images/erd sparkify.png>)
 
 ### Database Schema:
 This data warehouse is designed using a star schema with one fact table and 4 dimensional tables.
