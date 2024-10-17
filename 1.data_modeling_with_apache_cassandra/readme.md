@@ -27,7 +27,7 @@ This project is a part of Udacity's Data Engineering with AWS Nanodegree program
 Step-by-step instructions to install and run the project locally:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/codeots-tds/data_engineering_udacity/tree/master/3.data_warehouse_project
+   git clone https://github.com/codeots-tds/data_engineering_udacity/tree/master/1.data_modeling_with_apache_cassandra
 
 
 ## Datasets:
