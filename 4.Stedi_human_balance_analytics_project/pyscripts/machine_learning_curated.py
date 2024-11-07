@@ -31,6 +31,10 @@ Renamedkeysforjoin_cus_curated_step_accel_node1730917100842 = ApplyMapping.apply
 join_cus_curated_step_accel_node1730917025387 = Join.apply(frame1=Joinstep_trainerandaccelerometerdata_node1730831631247, frame2=Renamedkeysforjoin_cus_curated_step_accel_node1730917100842, keys1=["serialnumber"], keys2=["right_serialnumber"], transformation_ctx="join_cus_curated_step_accel_node1730917025387")
 
 # Script generated for node Output_to_S3
-Output_to_S3_node1730917182737 = glueContext.write_dynamic_frame.from_options(frame=join_cus_curated_step_accel_node1730917025387, connection_type="s3", format="glueparquet", connection_options={"path": "s3://stedi-s3-bucket/machine_learning_curated/", "partitionKeys": []}, format_options={"compression": "snappy"}, transformation_ctx="Output_to_S3_node1730917182737")
+# Output_to_S3_node1730917182737 = glueContext.write_dynamic_frame.from_options(frame=join_cus_curated_step_accel_node1730917025387, connection_type="s3", format="glueparquet", connection_options={"path": "s3://stedi-s3-bucket/machine_learning_curated/", "partitionKeys": []}, format_options={"compression": "snappy"}, transformation_ctx="Output_to_S3_node1730917182737")
+Output_to_S3_node1730917182737 = glueContext.getSink(path="s3://stedi-s3-bucket/machine_learning_curated/", connection_type="s3", updateBehavior="UPDATE_IN_DATABASE", partitionKeys=[], enableUpdateCatalog=True, transformation_ctx="Output_to_S3_node1730917182737")
+Output_to_S3_node1730917182737.setCatalogInfo(catalogDatabase="stedi-database",catalogTableName="machine_learning_curated")
+Output_to_S3_node1730917182737.setFormat("glueparquet", compression="snappy")
+Output_to_S3_node1730917182737.writeFrame(join_cus_curated_step_accel_node1730917025387)
 
 job.commit()

@@ -32,6 +32,6 @@ deduplicated_df = joined_df.dropDuplicates(['email'])
 deduplicated_df_dynamicframe = DynamicFrame.fromDF(deduplicated_df, glueContext, "deduplicated_dynamic_frame")
 
 # Script generated for node output_save_customer_trusted_to_s3
-output_save_customer_trusted_to_s3_node1730848570665 = glueContext.write_dynamic_frame.from_options(frame=deduplicated_df_dynamicframe, connection_type="s3", format="glueparquet", connection_options={"path": "s3://stedi-s3-bucket/customer_curated/", "partitionKeys": []}, format_options={"compression": "snappy"}, transformation_ctx="output_save_customer_trusted_to_s3_node1730848570665")
+output_save_customer_trusted_to_s3_node1730848570665 = glueContext.write_dynamic_frame.from_options(frame=deduplicated_df_dynamicframe, connection_type="s3", format="glueparquet", connection_options={"path": "s3://stedi-s3-bucket/customer_curated/", "partitionKeys": [], "enableUpdateCatalog": True, "updateBehavior": "UPDATE_IN_DATABASE"}, format_options={"compression": "snappy"}, transformation_ctx="output_save_customer_trusted_to_s3_node1730848570665")
 
 job.commit()

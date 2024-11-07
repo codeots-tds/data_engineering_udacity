@@ -33,11 +33,15 @@ customer_trusted_df = customer_data_df.filter(col("sharewithresearchasofdate").i
 #convert dataframe back to dynamic frame
 customer_trusted = DynamicFrame.fromDF(customer_trusted_df, glueContext, "customer_trusted")
 
+
 #Save dynamicframe back to S3-customer-data as customer_trusted dataset
 glueContext.write_dynamic_frame.from_options(
     frame = customer_trusted,
     connection_type = "s3",
-    connection_options = {"path": "s3://stedi-s3-bucket/customer_trusted/"},
+    connection_options = {"path": "s3://stedi-s3-bucket/customer_trusted/",
+                          "partitionKeys": [],
+                          "enableUpdateCatalog": True,
+                          "updateBehavior": "UPDATE_IN_DATABASE"},
     format = "parquet"
 )
 job.commit()

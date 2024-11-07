@@ -55,7 +55,10 @@ accelerometer_trusted = DynamicFrame.fromDF(accelerometer_trusted_sql, glueConte
 glueContext.write_dynamic_frame.from_options(
     frame = accelerometer_trusted,
     connection_type = "s3",
-    connection_options = {"path": "s3://stedi-s3-bucket/accelerometer_trusted/"},
+    connection_options = {"path": "s3://stedi-s3-bucket/accelerometer_trusted/",
+                          "partitionKeys": [],
+                          "enableUpdateCatalog": True,
+                          "updateBehavior": "UPDATE_IN_DATABASE"},
     format = "parquet"
 )
 

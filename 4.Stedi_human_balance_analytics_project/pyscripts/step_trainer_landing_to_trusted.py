@@ -39,7 +39,10 @@ step_trainer_trusted = DynamicFrame.fromDF(step_trainer_trusted_df, glueContext,
 glueContext.write_dynamic_frame.from_options(
     frame=step_trainer_trusted,
     connection_type="s3",
-    connection_options={"path": "s3://stedi-s3-bucket/step_trainer_trusted/"},
+    connection_options={"path": "s3://stedi-s3-bucket/step_trainer_trusted/",
+                        "partitionKeys": [],  
+                        "enableUpdateCatalog": True,
+                        "updateBehavior": "UPDATE_IN_DATABASE"},
     format="parquet"
 )
 
