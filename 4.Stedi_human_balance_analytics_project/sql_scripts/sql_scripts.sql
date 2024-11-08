@@ -39,9 +39,9 @@ LOCATION 's3://stedi-s3-bucket/accelerometer_trusted/'
 TBLPROPERTIES ('classification' = 'parquet');'''
 
 create_step_trainer_trusted = '''CREATE EXTERNAL TABLE IF NOT EXISTS `stedi-database`.`step_trainer_trusted` (
-  `sensorreadingtime` bigint,
-  `serialnumber` string,
-  `distancefromobject` int
+  sensorreadingtime bigint,
+  serialnumber string,
+  distancefromobject int
 )
 ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
 STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
@@ -50,12 +50,12 @@ TBLPROPERTIES ('classification' = 'parquet');
 '''
 
 machine_learning_curated = '''CREATE EXTERNAL TABLE IF NOT EXISTS `stedi-database`.`machine_learning_curated` (
-  `timestamp` bigint,
-  `serialnumber` string,
-  `distancefromobject` int,
-  `x` double,
-  `y` double,
-  `z` double
+  timestamp bigint,
+  serialnumber string,
+  distancefromobject int,
+  x double,
+  y double,
+  z double
 )
 ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
 STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
