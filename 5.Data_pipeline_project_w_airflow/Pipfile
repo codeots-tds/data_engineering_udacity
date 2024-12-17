@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+apache-airflow = "==2.3.2"
+google-re2 = "*"
+apache-airflow-providers-amazon = "*"
+psycopg2-binary = "*"
+apache-airflow-providers-postgres = "*"
+apache-airflow-providers-http = "*"
+apache-airflow-providers-common-sql = "*"
+botocore = "*"
+redshift-connector = "*"
+jsonpath-ng = "*"
+boto3 = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
